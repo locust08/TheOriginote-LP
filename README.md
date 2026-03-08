@@ -34,3 +34,26 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+## Supabase registration storage
+
+This project now stores `/registration` submissions in Supabase Postgres through `POST /api/registrations`.
+
+### Environment variables
+
+Create `.env.local` (or copy from `.env.example`) and set:
+
+```bash
+NEXT_PUBLIC_SUPABASE_URL=...
+NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY=...
+SUPABASE_DB_URL=postgresql://postgres:[password]@db.<project-ref>.supabase.co:5432/postgres
+```
+
+`SUPABASE_DB_URL` uses the direct Postgres connection string.  
+If your password includes special characters, the backend normalizes the bracket-password format automatically.
+
+### Database table
+
+The API creates this table automatically on first submission if it does not exist:
+
+- `registration_submissions`
