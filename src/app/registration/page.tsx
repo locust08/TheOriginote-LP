@@ -4,7 +4,6 @@ import { FormEvent, Suspense, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
-import { ThemeToggle } from "@/components/theme-toggle";
 import { getSelectedProducts, parseSelectedProductIds } from "@/lib/product-catalog";
 
 const pages = [
@@ -226,7 +225,6 @@ function RegistrationPageContent() {
               {selectedProducts.length}
             </span>
           </button>
-          <ThemeToggle />
         </div>
       </nav>
 

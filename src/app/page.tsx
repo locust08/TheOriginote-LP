@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { ThemeToggle } from "@/components/theme-toggle";
+import Link from "next/link";
 import { landingPageImages } from "@/lib/landing-page-images";
 
 const stats = [
@@ -55,7 +55,7 @@ export default function Home() {
           <h1 className="text-center text-sm font-medium tracking-[0.28em] sm:text-2xl sm:tracking-[0.35em]">
             THE ORIGINOTE
           </h1>
-          <ThemeToggle />
+          <div className="w-10 sm:w-[44px]" aria-hidden="true" />
         </div>
       </nav>
 
@@ -205,13 +205,13 @@ export default function Home() {
           </div>
 
           <div className="flex justify-center">
-            <a
+            <Link
               href="/products"
               className="inline-flex items-center gap-3 rounded-full border border-foreground px-8 py-3 text-xs font-medium uppercase tracking-[0.28em] transition hover:bg-foreground hover:text-background"
             >
               Shop All Products
               <ArrowUpRight />
-            </a>
+            </Link>
           </div>
         </section>
 

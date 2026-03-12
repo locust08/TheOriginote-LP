@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { WhatsAppButton } from "@/components/whatsapp-button";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -8,12 +9,9 @@ export const metadata: Metadata = {
 
 const themeInitScript = `
   try {
-    const savedTheme = localStorage.getItem("theme-mode");
-    if (savedTheme === "light" || savedTheme === "dark") {
-      document.documentElement.setAttribute("data-theme", savedTheme);
-    } else {
-      document.documentElement.removeAttribute("data-theme");
-    }
+    const hour = new Date().getHours();
+    const nextTheme = hour >= 7 && hour < 19 ? "light" : "dark";
+    document.documentElement.setAttribute("data-theme", nextTheme);
   } catch {}
 `;
 
@@ -27,6 +25,7 @@ export default function RootLayout({
       <body className="antialiased">
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
         {children}
+        <WhatsAppButton />
       </body>
     </html>
   );

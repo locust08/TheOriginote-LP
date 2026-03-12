@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { ThemeToggle } from "@/components/theme-toggle";
 import {
   getSelectedProducts,
   parseSelectedProductIds,
@@ -219,7 +218,6 @@ export default async function ThankYouPage({ searchParams }: ThankYouPageProps) 
               {selectedProducts.length}
             </span>
           </Link>
-          <ThemeToggle />
         </div>
       </nav>
 
